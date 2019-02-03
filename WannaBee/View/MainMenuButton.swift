@@ -17,7 +17,7 @@ class MainMenuButton: UIButton {
         super.init(frame: frame)
         titleLabel?.font = buttonFont
         setTitleColor(ColorCollection.textColor, for: .normal)
-
+        contentHorizontalAlignment = .left
     }
     
     convenience init(title: String) {

@@ -13,14 +13,14 @@ enum ColorCollection {
 //    static let backgroundColor  = UIColor(r: 20, g: 20, b: 20, alpha: 1)
 //    static let mainColor        = UIColor(r: 233, g: 163, b: 64, alpha: 1)
 //    static let textColor        = UIColor(r: 255, g: 255, b: 255, alpha: 1)
-    static let backgroundColor  = UIColor(r: 255, g: 255, b: 255, alpha: 1)
+    static let backgroundColor  = UIColor(r: 0, g: 0, b: 0, alpha: 1)
     static let mainColor        = UIColor(r: 233, g: 163, b: 64, alpha: 1)
-    static let textColor        = UIColor(r: 0, g: 0, b: 0, alpha: 1)
+    static let textColor        = UIColor(r: 255, g: 255, b: 255, alpha: 1)
 }
 
 enum FontsCollection {
     static let titleFont = UIFontMetrics.default.scaledFont(for: UIFont(name: "HelveticaNeue-Light", size: 40) ?? UIFont.systemFont(ofSize: 30))
-    static let menuFont = UIFontMetrics.default.scaledFont(for: UIFont(name: "HelveticaNeue-Light", size: UIScreen.main.bounds.height / FontScale.divider) ?? UIFont.systemFont(ofSize: 24))
+    static let menuFont = UIFontMetrics.default.scaledFont(for: UIFont(name: "HelveticaNeue-Light", size: UIScreen.main.bounds.height / FontScale.divider) ?? UIFont.systemFont(ofSize: 12))
 }
 
 enum Sizes {
@@ -41,9 +41,9 @@ enum FontScale {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         if width/height < 0.5 {
-            return 32
+            return 40
         } else {
-            return 25
+            return 35
         }
     }()
 }

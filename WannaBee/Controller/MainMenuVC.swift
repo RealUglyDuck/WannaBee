@@ -10,9 +10,12 @@ import UIKit
 
 class MainMenuVC: UIViewController {
     
+    var sideMenuConstraints: [NSLayoutConstraint] = []
+    let sideMenu = SideMenu()
+    
     let attributedTitle: NSMutableAttributedString = {
         
-        let font = FontsCollection.titleFont
+        let font = UIFont.systemFont(ofSize: 30)
         
         let firstAttributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ColorCollection.textColor]
         let secondAttributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ColorCollection.mainColor]
@@ -45,7 +48,12 @@ class MainMenuVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = ColorCollection.backgroundColor
         setupViews()
-        print("width: \(UIScreen.main.bounds.width), height: \(UIScreen.main.bounds.height)")
+        sideMenu.menuButton.addTarget(self, action: #selector(burgerButtonPressed), for: .touchUpInside)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        hideSideMenu()
     }
     
     @objc func menuItemPressed(sender: MainMenuButton) {
@@ -53,25 +61,67 @@ class MainMenuVC: UIViewController {
         guard let controller = menuLinks[title] else { return }
         present(controller, animated: true, completion: nil)
     }
-
     
-    func setupViews() {
-        view.addSubview(titleView)
-        view.addSubview(menuButtonsStack)
-        
-        _ = titleView.constraintsTo(top: view.topAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: nil)
-        
-        titleView.setSize(width: nil, height: view.bounds.height / Sizes.titleViewScale)
-        
-        _ = menuButtonsStack.constraintWithDistanceTo(top: titleView.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, topDistance: 60, leftDistance: 20, rightDistance: 20, bottomDistance: 100)
-        
-        for index in menuTitles.indices {
-            let button = MainMenuButton(title: menuTitles[index])
-            button.addTarget(self, action: #selector(menuItemPressed(sender:)), for: .touchUpInside)
-            menuButtonsStack.addArrangedSubview(button)
+    @objc func burgerButtonPressed() {
+        if sideMenu.menuIsHidden == true {
+            showSideMenu()
+        } else {
+            hideSideMenu()
+        }
+    }
+
+    func hideSideMenu() {
+        let menuWidth = sideMenu.bounds.width - sideMenu.menuButton.bounds.width
+        for constraint in self.sideMenuConstraints {
+            if constraint.identifier == "rightAnchorConstraint" {
+                let currentConstant = constraint.constant
+                constraint.constant = currentConstant - menuWidth
+            }
+            if constraint.identifier == "leftAnchorConstraint" {
+                let currentConstant = constraint.constant
+                constraint.constant = currentConstant - menuWidth
+            }
         }
         
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }) { (true) in
+            self.sideMenu.menuIsHidden = true
+        }
+    }
+    
+    func showSideMenu() {
+        
+        for constraint in self.sideMenuConstraints {
+            if constraint.identifier == "rightAnchorConstraint" {
+                constraint.constant = 80
+            }
+            if constraint.identifier == "leftAnchorConstraint" {
+                constraint.constant = 0
+            }
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }) { (true) in
+            self.sideMenu.menuIsHidden = false
+        }
+    }
+    
+    func setupViews() {
+        
+        view.addSubview(titleView)
+        view.addSubview(sideMenu)
+        titleView.separator.isHidden = true
         titleView.backButton.isHidden = true
+        titleView.centerInTheView(centerX: view.centerXAnchor, centerY: view.centerYAnchor)
+
+        
+        sideMenuConstraints = sideMenu.constraintWithDistanceTo(top: view.topAnchor, leading: view.leadingAnchor, trailing: view.centerXAnchor, bottom: view.bottomAnchor, topDistance: 0, leftDistance: 0, rightDistance: -80, bottomDistance: 0)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     let menuTitles = ["QUESTIONS","BEFORE INTERVIEW", "INTERVIEW TIPS", "CV TIPS&TRICKS", "PRACTICE"]

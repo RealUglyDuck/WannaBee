@@ -10,6 +10,8 @@
 		AE18891521EF9C2D000FA390 /* PolygonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18891421EF9C2D000FA390 /* PolygonButton.swift */; };
 		AE18891821F10059000FA390 /* InterviewTipsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18891721F10059000FA390 /* InterviewTipsVC.swift */; };
 		AE18891A21F101A0000FA390 /* ButtonsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18891921F101A0000FA390 /* ButtonsStack.swift */; };
+		AE57014621FF85F000024D14 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57014521FF85F000024D14 /* SideMenu.swift */; };
+		AE57014821FF86BE00024D14 /* BurgerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE57014721FF86BE00024D14 /* BurgerButton.swift */; };
 		AE6EF6D221E69D5D0069A902 /* QuestionsCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6EF6D121E69D5D0069A902 /* QuestionsCategoriesVC.swift */; };
 		AE78805F21E244BA0032EB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78805E21E244BA0032EB34 /* AppDelegate.swift */; };
 		AE78806121E244BA0032EB34 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE78806021E244BA0032EB34 /* MainMenuVC.swift */; };
@@ -28,6 +30,8 @@
 		AE18891621F0B4AD000FA390 /* StoryboardTesting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardTesting.storyboard; sourceTree = "<group>"; };
 		AE18891721F10059000FA390 /* InterviewTipsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewTipsVC.swift; sourceTree = "<group>"; };
 		AE18891921F101A0000FA390 /* ButtonsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsStack.swift; sourceTree = "<group>"; };
+		AE57014521FF85F000024D14 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		AE57014721FF86BE00024D14 /* BurgerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerButton.swift; sourceTree = "<group>"; };
 		AE6EF6D121E69D5D0069A902 /* QuestionsCategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsCategoriesVC.swift; sourceTree = "<group>"; };
 		AE78805B21E244B90032EB34 /* WannaBee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WannaBee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE78805E21E244BA0032EB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				AE78807221E24A5C0032EB34 /* TitleView.swift */,
 				AE78807D21E26B3E0032EB34 /* MainMenuButton.swift */,
 				AE18891421EF9C2D000FA390 /* PolygonButton.swift */,
+				AE57014521FF85F000024D14 /* SideMenu.swift */,
+				AE57014721FF86BE00024D14 /* BurgerButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 				AE78807321E24A5C0032EB34 /* TitleView.swift in Sources */,
 				AE78807C21E24D3E0032EB34 /* Constants.swift in Sources */,
 				AE78807E21E26B3E0032EB34 /* MainMenuButton.swift in Sources */,
+				AE57014821FF86BE00024D14 /* BurgerButton.swift in Sources */,
+				AE57014621FF85F000024D14 /* SideMenu.swift in Sources */,
 				AE78807A21E24C9D0032EB34 /* VCExtensions.swift in Sources */,
 				AE18891821F10059000FA390 /* InterviewTipsVC.swift in Sources */,
 				AE18891A21F101A0000FA390 /* ButtonsStack.swift in Sources */,
